@@ -14,7 +14,7 @@ if (process.env.JAWSDB_URL){
   user: 'root',
   // NOTE: Be sure to add your MySQL password here!
   password: '2busika22',
-  database: 'burgers_db',
+  database: '',
 });
 
   
