@@ -1,13 +1,17 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: rgb(251, 255, 22);
+    background-image: url("cookbr.JPG");
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(247, 187, 138);
 }
 
 .title {
-    font-family: 'Sigmar One', cursive;
-    font-size: 60px;
-    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90px;
+    font-weight: bold;
+    color: #e2dcfc;
+    text-shadow: 6px 4px #08065f; 
     padding: 20px;
+   
 }
 
 .burger-title {
@@ -20,14 +24,15 @@ body {
     margin: 10px;
     height: 300px;
     overflow: auto;
-    background-color: #62EDD6;
+    background-color: #e4fcbe;
+    
 }
 
 #list-burgers {
     margin: 10px;
     height: 300px;
     overflow: auto;
-    background-color: #FE65B7;
+    background-color: #fcc7b2;
 }
 
 .container {
@@ -38,14 +43,14 @@ body {
     overflow: hidden;
     font-size: 20px;
     margin: 8px;
-    border: 2px solid #62EDD6;
+    border: 2px solid #b7f5ba;
     padding: 3px;
 }
 
 .devoured-burgers {
     font-size: 20px;
     margin: 8px;
-    border: 2px solid #FE65B7;
+    border: 2px solid #718572;
     padding: 3px;
 }
 
@@ -54,7 +59,7 @@ body {
     border-radius: 8px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    background-color: #62EDD6;
+    background-color: #d1fdf6;
 }
 
 #burger-ready:hover {
@@ -65,17 +70,21 @@ body {
 
 #add-burger{
     margin: 0 auto; 
+    margin-top: 10px;
     width: 250px;
     margin-bottom: 50px;
+
 }
 
 #enter-burger {
+    margin: 0 auto; 
+    margin-bottom: 10px;
     font-size: 25px;
     width: 200px;
     height: 50px;
     align-content: center;
     color: #000000;
-    background-color: #FE65B7;   
+    background-color: #e1e9f5;   
 }
 
 #submit-burger {
@@ -85,7 +94,7 @@ body {
     width: 200px;
     padding: 10px;
     color: #000000;
-    background-color: #62EDD6;
+    background-color: #d0f7f0;
 }
 
 #submit-burger:hover {
