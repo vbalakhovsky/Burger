@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col" id="list-burgers">
-            <h2 class="burger-title text-center">Burgers Available</h2>
+            <h2 class="burger-title text-center">Available Burgers</h2>
             {{#each burgers}}
             {{#unless this.devoured}}
             <div class="available-burgers">
@@ -17,11 +17,12 @@
         </div>
       
         <div class="col" id="list-devoured">
-            <h2 class="burger-title text-center">Burgers Devoured</h2>
+            <h2 class="burger-title text-center">Burgers Eaten</h2>
             {{#each burgers}}
             {{#if this.devoured}}
             <div class="devoured-burgers">
                 {{this.burger_name}}
+               
             </div>
             {{/if}}
             {{/each}}

@@ -1,5 +1,5 @@
 // Import MYSQL connection
-var connection = require("../config/connection.js");
+const connection = require("../config/connection.js");
 
 function printQuestionMarks(num) {
     var arr = [];
@@ -11,7 +11,7 @@ function printQuestionMarks(num) {
     return arr.toString();
 }
 
-
+// Helper function to convert object key/value pairs to SQL syntax
 function objToSql(obj) {
     var arr = [];
    
@@ -19,7 +19,7 @@ function objToSql(obj) {
         var value = obj[key];
        
         if (Object.hasOwnProperty.call(obj, key)) {
-        
+         // If string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             }
@@ -30,7 +30,7 @@ function objToSql(obj) {
 }
 
 
-var orm = {
+const orm = {
     // all elements
     selectAll: function (tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
@@ -42,7 +42,7 @@ var orm = {
         });
     },
    
-    insertOne: function (table, cols, vals, cb) {
+    insertBrgr: function (table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
 
         queryString += " (";
@@ -63,7 +63,7 @@ var orm = {
         });
     },
     // Update
-    updateOne: function (table, objColVals, condition, cb) {
+    updateBrgr: function (table, objColVals, condition, cb) {
         var queryString = "UPDATE " + table;
 
         queryString += " SET ";
@@ -81,6 +81,32 @@ var orm = {
             cb(result);
         });
     },
+
+
+
+
+    delete(table, condition, cb) {
+        let queryString = `DELETE FROM ${table}`;
+        queryString += ' WHERE ';
+        queryString += condition;
+    
+        connection.query(queryString, (err, result) => {
+          if (err) {
+            throw err;
+          }
+    
+          cb(result);
+        });
+      },
+
+
+
+
+
+
+
+
+
 }
 
 // Export the orm object for the model

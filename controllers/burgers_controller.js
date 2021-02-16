@@ -1,15 +1,13 @@
 // Routes 
-var express = require("express");
+const express = require("express");
 
-// Use router method off of express object to control routes in the application
-var router = express.Router();
+
+const router = express.Router();
 
 // Import the model (burger.js) to use its database functions.
 var burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
-// This is the JS object/data which is getting passed to view engine (in this case, handlebars)
-// Handlebars renders html file index.handlebars and rendering the object burgers
 router.get("/", function (req, res) {
     burger.selectAll(function (data) {
         var hbsObject = {
@@ -21,7 +19,7 @@ router.get("/", function (req, res) {
 });
 
 router.post("/burgers", function (req, res) {
-    burger.insertOne([
+    burger.insertBrgr([
         "burger_name"
     ], [
         req.body.burger_name
@@ -32,16 +30,39 @@ router.post("/burgers", function (req, res) {
 
 router.put("/burgers/:id", function (req, res) {
     var condition = "id = " + req.params.id;
+ // Send back the ID of the new burger
+    
 
-    // console.log("condition", condition);
-
-    burger.updateOne({
+    burger.updateBrgr({
         devoured: true
     }, condition, function (data) {
         res.redirect("/");
 
     });
 });
+
+
+
+router.delete('/burgers/:id', (req, res) => {
+    const condition = `id = ${req.params.id}`;
+  
+    burger.delete(condition, (result) => {
+      if (result.affectedRows === 0) {
+        // If no rows were changed, then the ID must not exist, so 404
+        return res.status(404).end();
+      }
+      res.status(200).end();
+    });
+  });
+
+
+
+
+
+
+
+
+
 
 // Export routes for server.js to use.
 module.exports = router;
