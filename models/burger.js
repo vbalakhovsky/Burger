@@ -1,5 +1,4 @@
-// Uses orm (within config folder) to get data from database and send it to controllers
-// contains all methods used to modify orm for use with burgers database
+
 
 var orm = require("../config/orm.js");
 
